@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Quick Tips</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="indexcss.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2 class="text-white">Contents</h2>
+      <ul>
+        <h6 class="mb-0 mt-2 text-white">Set Up</h4>
+        <li><a href="#creatingdjangoenvironment">Creating Django Environment</a></li>
+        <li><a href="#activatedjangoenvironment">Activate Django Environment</a></li>
+        <li><a href="#createproject">Create Project</a></li>
+        <li><a href="#createapplication">Create Application</a></li>
+        <li><a href="#runserver">Run Server</a></li>
+        <li><a href="#connectapplicationtoproject">Connect Application to Project</a></li>
+        <li><a href="#connectapplicationviewstoproject">Connect Application Views to Project</a></li>
+        <li><a href="#urlmapping">URL Mapping</a></li>
+        <h6 class="mb-0 mt-4 text-white">Linking Files</h4>
+        <li><a href="#addingtemplatetagging">Adding Template Tagging</a></li>
+        <li><a href="#addingstaticfiles">Adding Static Files</a></li>
+        <h6 class="mb-0 mt-4 text-white">Models</h4>
+        <li><a href="#creatingmodels">Creating Models</a></li>
+        <li><a href="#creatingsuperuser">Creating Super User</a></li>
+        <li><a href="#creatingpopulationscripts">Creating Population Scripts</a></li>
+        <li><a href="#connectingmodelstemplatesviews">Connecting Models Templates Views</a></li>
+        <h6 class="mb-0 mt-4 text-white">Forms</h4>
+        <li><a href="#creatingforms">Creating Forms</a></li>
+        <li><a href="#gettingdatafromforms">Getting Data from Forms</a></li>
+        <li><a href="#cleanmethodformvalidation">Clean Method Form Validation</a></li>
+        <li><a href="#importmethodformvalidation">Import Method Form Validation</a></li>
+        <li><a href="#custommethodformvalidation">Custom Method Form Validation</a></li>
+        <li><a href="#cleanentireform">Clean Entire Form</a></li>
+        <li><a href="#saveformtomodel">Save Form to Model</a></li>
+        <h6 class="mb-0 mt-4 text-white">Application Specific URL</h4>
+        <li><a href="#urltemplatetagging">URL Template Tagging</a></li>
+        <li><a href="#templateinheritance">Template Inheritance</a></li>
+      </ul>
+    </div>
+    <div class="mainbar">
+      <section id="header">
+        <div class="jumbotron text-center mt-2 mb-2 p-3">
+          <h1 class="display-5">Welcome to Django Quick Tips!</h1>
+          <p class="lead">This is a compilation of all quick implementation tips learned over <br>the web development course sponspored by Udemy.</p>
+        </div>
+      </section>
+      <section id="tableofcontents">
+        <div class="container px-0 mx-auto">
+          <h4 class="bg-dark pt-2 text-white text-center mb-0 rounded-top">Table of Contents</h4>
+          <h6 class="bg-dark pb-2 text-white text-center rounded-bottom" style="font-weight: 300;">Click on any of the following categories to see corresponding code.</h6>
+          <ol>
+            <li><a href="#creatingdjangoenvironment">Creating Django Environment</a></li>
+            <li><a href="#activatedjangoenvironment">Activate Django Environment</a></li>
+            <li><a href="#createproject">Create Project</a></li>
+            <li><a href="#createapplication">Create Application</a></li>
+            <li><a href="#runserver">Run Server</a></li>
+            <li><a href="#connectapplicationtoproject">Connect Application to Project</a></li>
+            <li><a href="#connectapplicationviewstoproject">Connect Application Views to Project</a></li>
+            <li><a href="#urlmapping">URL Mapping</a></li>
+            <li><a href="#addingtemplatetagging">Adding Template Tagging</a></li>
+            <li><a href="#addingstaticfiles">Adding Static Files</a></li>
+            <li><a href="#creatingmodels">Creating Models</a></li>
+            <li><a href="#creatingsuperuser">Creating Super User</a></li>
+            <li><a href="#creatingpopulationscripts">Creating Population Scripts</a></li>
+            <li><a href="#connectingmodelstemplatesviews">Connecting Models Templates Views</a></li>
+            <li><a href="#creatingforms">Creating Forms</a></li>
+            <li><a href="#gettingdatafromforms">Getting Data from Forms</a></li>
+            <li><a href="#cleanmethodformvalidation">Clean Method Form Validation</a></li>
+            <li><a href="#importmethodformvalidation">Import Method Form Validation</a></li>
+            <li><a href="#custommethodformvalidation">Custom Method Form Validation</a></li>
+            <li><a href="#cleanentireform">Clean Entire Form</a></li>
+            <li><a href="#saveformtomodel">Save Form to Model</a></li>
+            <li><a href="#urltemplatetagging">URL Template Tagging</a></li>
+            <li><a href="#tempateinheritance">Template Inheritance</a></li>
+          </ol>
+        </div>
+      </section>
+      <section id="tips">
+        <div class="container px-0">
+          <div class="row">
+            <div class="col-12 my-3" id="creatingdjangoenvironment">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Creating Django Environment</h4>
+                <p class="location">In console:</p>
+                <pre class="mb-0"><code contenteditable>conda create --name djangoEnv python=3.7</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="activatedjangoenvironment">
+              <div class="border border-dark rounded bg-light p-3">
+                  <h4 class="py-0">Activate Django Environment</h4>
+                  <p class="location">In console:</p>
+                  <pre class="mb-0"><code contenteditable>conda activate djangoEnv</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="createproject">
+              <div class="border border-dark rounded bg-light p-3">
+                  <h4 class="py-0">Create Project</h4>
+                  <p class="location">In console:</p>
+                  <pre class="mb-0"><code contenteditable>django-admin startproject project_test</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="createapplication">
+              <div class="border border-dark rounded bg-light p-3">
+                  <h4 class="py-0">Create Application</h4>
+                  <p class="location">In console:</p>
+                  <pre class="mb-0"><code contenteditable>python manage.py startapp app_test</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="runserver">
+              <div class="border border-dark rounded bg-light p-3">
+                  <h4 class="py-0">Run Server</h4>
+                  <p class="location">In console:</p>
+                  <pre class="mb-0"><code contenteditable>python manage.py runserver</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="connectapplicationtoproject">
+              <div class="border border-dark rounded bg-light p-3">
+                  <h4 class="py-0">Connect Application to Project</h4>
+                  <p class="location">In project settings.py: </p>
+                  <pre class="mb-1"><code contenteditable>Installed_Apps = [<br>&emsp;&emsp;'app_test'<br>]</code></pre>
+                  <p class="location">In application views.py: </p>
+                  <pre class="mb-0"><code contenteditable>from django.http import HttpResponse<br>def index(request):<br>&emsp;&emsp;return HttpResponse("I am the index page").</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="connectapplicationviewstoproject">
+              <div class="border border-dark rounded bg-light p-3">
+                  <h4 class="py-0">Connect Application Views to Project</h4>
+                  <p class="location">In project urls.py:</p>
+                  <pre class="mb-0"><code contenteditable>from application import views<br>urlpatterns = [<br>&emsp;&emsp;path('', views.index, name='index')<br>]</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="urlmapping">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">URL Mapping</h4>
+                <p class="step">(1) Add urls.py file to application folder.</p>
+                <p class="location">In application urls.py:</p>
+                <pre class="mb-1"><code contenteditable>from django.urls import path, include<br>from application import views<br>urlpatterns = [<br>&emsp;&emsp;path('', views.firstpage, name='firstpage')<br>]</code></pre>
+                <p class="location">In application views.py:</p>
+                <pre class="mb-1"><code contenteditable>def firstpage(request):<br>&emsp;&emsp;return HttpResponse("I am the first page")</code></pre>
+                <p class="location">In project urls.py:</p>
+                <pre class="mb-1"><code contenteditable>from django.urls import include<br>urlpatterns=[<br>&emsp;&emsp;path('firstpage/', include('application.urls'))<br>]</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="addingtemplatetagging">
+              <div class="border border-dark rounded bg-light p-3">
+                  <h4 class="py-0">Adding Template Tagging</h4>
+                  <p class="step">(1) Create templates folder in line with application and project folders.</p>
+                  <p class="step">(2) Create folder in the templates folder for each application.</p>
+                  <p class="step">(3) Create an index.html file for each application.</p>
+                  <p class="location">In project settings.py:</p>
+                  <pre class="mb-1"><code contenteditable>import os<br>TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')<br><br>DIRS=[TEMPLATE_DIR,],</code></pre>
+                  <p class="location">In template application index.html: </p>
+                  <pre class="mb-1"><code contenteditable>{% load static %}<br>&lt;body&gt;<br>&emsp;&emsp;&lt;h1&gt; Index Page &lt;/h1&gt;<br>&emsp;&emsp;{{ page_template }}<br>&lt;/body>&gt;</code></pre>
+                  <p class="location">In application views.py: </p>
+                  <pre class="mb-0"><code contenteditable>def index(request):<br>&emsp;&emsp;my_dict={'page_template':'This is the text that would be inserted as the template tag'}<br>&emsp;&emsp;return render(request,'application/index.html', context=my_dict)</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="addingstaticfiles">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Adding Static Files</h4>
+                <p class="step">(1) Create static folder in line with application, projects, templates folders.</p>
+                <p class="step">(2) Create css folder and add mystyle.css files.</p>
+                <p class="location">In project settings.py:</p>
+                <pre class="mb-1"><code contenteditable>STATIC_DIR = os.path.join(BASE_DIR, 'static')<br>STATICFILES_DIRS = [<br>&emsp;&emsp;STATIC_DIR,<br>]<br>DIRS=[TEMPLATE_DIR, STATIC_DIR,],</code></pre>
+                <p class="location">In templates application index.html: </p>
+                <pre class="mb-1"><code contenteditable>&lt;link rel='stylesheet' href={% static 'css/mystyle.css' %}&gt;</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="creatingmodels">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Creating Models</h4>
+                <p class="location">In application models.py:</p>
+                <pre class="mb-1"><code contenteditable>class Model1(models.Model):<br>&emsp;&emsp;column1 = models.CharField(max_length=264)<br>&emsp;&emsp;column2 = models.CharField(max_length=264)<br>&emsp;&emsp;def __str__(self):<br>&emsp;&emsp;&emsp;&emsp;return self.column1</code></pre>
+                <p class="location">In console:</p>
+                <pre class="mb-1"><code contenteditable>python manage.py migrate</code></pre>
+                <pre class="mb-1"><code contenteditable>python manage.py makemigrations application</code></pre>
+                <pre class="mb-1"><code contenteditable>python manage.py migrate</code></pre>
+                <p class="location">In application admin.py:</p>
+                <pre class="mb-0"><code contenteditable>from django.contrib import admin<br>from app.models import Model1, Model2<br>admin.site.register(Model1)<br>admin.site.register(Model2)</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="creatingsuperuser">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Creating Super User</h4>
+                <p class="location">In console:</p>
+                <pre class="mb-0"><code contenteditable>python manage.py createsuperuser</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="creatingpopulationscripts">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Creating Population Scripts</h4>
+                <p class="step">(1) Create a new file called populate_application.py in line with manage.py</p>
+                <p class="location">In console:</p>
+                <pre class="mb-1"><code contenteditable>pip install Faker</code></pre>
+                <p class="location">In populate_application.py:</p>
+                <pre class="mb-1"><code contenteditable>import os<br>os.environ.setdefault('DJANGO_SETTINGS_MODULE','project.settings')<br>import django<br>django.setup()<br><br>import random<br>from application.models import Model1, Model2<br>from faker import Faker<br><br>generator = Faker()<br><br>def add_Model1():<br>&emsp;&emsp;x = Model1.objects.get_or_create(column1=column1value)[0]<br>&emsp;&emsp;x.save()<br>&emsp;&emsp;return x<br><br>def populate(N=5):<br>&emsp;&emsp;for entry in range(N):<br>&emsp;&emsp;&emsp;&emsp;model=add_Model()<br>&emsp;&emsp;&emsp;&emsp;date=fakegen.date()<br>&emsp;&emsp;&emsp;&emsp;mod2=Model2.objects.get_or_create(column1=model, ...)<br><br>if __name__=='__main__':<br>&emsp;&emsp;print("About to Populate")<br>&emsp;&emsp;populate(number)<br>&emsp;&emsp;print("Population complete!")</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="connectingmodelstemplatesviews">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Connecting Models Templates Views</h4>
+                <p class="location">In application views.py:</p>
+                <pre class="mb-1"><code contenteditable>from application.models import Model1, Model2</code></pre>
+                <pre class="mb-1"><code contenteditable>def index:<br>&emsp;&emsp;modelobjects = Model1.objects.order_by('column1')<br>&emsp;&emsp;dictionary={'modelobjects':modelobjects}<br>&emsp;&emsp;return render(request, 'application/index.html', context=modelobjects)</code></pre>
+                <p class="location">In templates application index.html:</p>
+                <pre class="mb-1"><code contenteditable>{% load static %}<br>&lt;html&gt;<br>&emsp;&emsp;&lt;link rel="stylesheet" href={% static 'css/mystyle.css' %}/&gt;<br>&emsp;&emsp;...<br>&emsp;&emsp;&lt;h1&gt;Hello!&lt;h1&gt;<br>&emsp;&emsp;&lt;h2&gt;Here are the model objects populated.&lt;/h2&gt;<br>&emsp;&emsp;&lt;div class='proj'&gt;<br>&emsp;&emsp;&emsp;&emsp;{% if modelobjects %}<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;table&gt;<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{% for object in modelobjects %}<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;tr&gt;<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;td&gt;{{ object.column1 }}<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;/tr&gt;<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{% endfor %}<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;/table&gt;<br>&emsp;&emsp;&emsp;&emsp;{% else %}<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;p&gt;No objects found!&lt;/p&gt;<br>&emsp;&emsp;&emsp;&emsp;{% endif %}<br>&emsp;&emsp;&lt;/div&gt;<br>&lt;/html&gt;</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="creatingforms">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Creating Forms</h4>
+                <p class="step">(1) Create forms.py file in application folder</p>
+                <p class="location">In application forms.py:</p>
+                <pre class="mb-1"><code contenteditable>from django import forms<br>class FormName(forms.Form):<br>&emsp;&emsp;name=forms.CharField()<br>&emsp;&emsp;text = forms.CharField(widget=forms.TextArea)</code></pre>
+                <p class="location">In application views.py:</p>
+                <pre class="mb-1"><code contenteditable>from forms import FormName<br>def form_name_view(request):<br>&emsp;&emsp;form=FormName()<br>&emsp;&emsp;return render(request, 'application/form_name.html', {'form':form})</code></pre>
+                <p class="location">In application urls.py:</p>
+                <pre class="mb-1"><code contenteditable>from application import views<br>urlpatterns=[<br>&emsp;&emsp;path('formpage/', views.form_name_view, name='form_name')<br>]</code></pre>
+                <p class="location">In templates form_name.html</p>
+                <pre class="mb-1"><code contenteditable>&lt;form method="POST"&gt;<br>&emsp;&emsp;{{ form.as_p }}<br>&emsp;&emsp;{% csrf_token %}<br>&emsp;&emsp;&lt;input type="submit" class="btn btn-primary" value="submit"&gt;<br>&lt;/form&gt;</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="gettingdatafromforms">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Getting Data from Forms</h4>
+                <p class="location">In application views.py:</p>
+                <pre class="mb-1"><code contenteditable>def form_name_view(request):<br>&emsp;&emsp;if request.method == 'POST':<br>&emsp;&emsp;&emsp;&emsp;form = forms.FormName(request.POST)<br>&emsp;&emsp;&emsp;&emsp;if form.is_valid():<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print("Validation Success")<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print("Name="+form.cleaned_data['name'])<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;form.save(commit=True)<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return index(request)<br>&emsp;&emsp;return render(request, 'application/form.html', {'form':form})</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="cleanmethodformvalidation">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Clean Method Form Validation</h4>
+                <p class="location">In application forms.py class FormName:</p>
+                <pre class="mb-1"><code contenteditable>class FormName(forms.Form):<br>&emsp;&emsp;botcatcher = forms.CharField(required=False, widget=forms.HiddenInput)<br>&emsp;&emsp;def clean_botcatcher(self):<br>&emsp;&emsp;&emsp;&emsp;botcatcher = self.cleaned_data['botcatcher']&emsp;&emsp;<br>&emsp;&emsp;&emsp;&emsp;if len(botcatcher)>0:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;raise forms.ValidationError("Caught bot!")<br>&emsp;&emsp;&emsp;&emsp;return botcatcher</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="importmethodformvalidation">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Import Method Form Validation</h4>
+                <p class="location">In application forms.py:</p>
+                <pre class="mb-1"><code contenteditable>from django import forms<br>from django.core import validators<br>class FormName(forms.Form):<br>&emsp;&emsp;botcatcher=forms.CharField(required=False, widget=forms.HiddenInput, validator = [validators.MaxLengthValidator(0)])</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="custommethodformvalidation">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Custom Method Form Validation</h4>
+                <p class="location">In application forms.py:</p>
+                <pre class="mb-1"><code contenteditable>def check_for_letter(value):<br>&emsp;&emsp;if value[0] != '_':<br>&emsp;&emsp;&emsp;&emsp;raise forms.ValidationError("Field must start with __")<br>class FormName(forms.Form):<br>&emsp;&emsp;field=forms.CharField(validators=[check_for_letter,])</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="cleanentireform">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Clean Entire Form</h4>
+                <p class="location">In application forms.py:</p>
+                <pre class="mb-1"><code contenteditable>class FormName(forms.Form):<br>&emsp;&emsp;email=forms.EmailField()<br>&emsp;&emsp;verify_email=forms.EmailField(label="Enter your email again:")<br>&emsp;&emsp;def clean(self):<br>&emsp;&emsp;&emsp;&emsp;all_clean_data=super().clean()<br>&emsp;&emsp;&emsp;&emsp;email=all_clean_data['email']<br>&emsp;&emsp;&emsp;&emsp;vemail=all_clean_data['verify_email']<br>&emsp;&emsp;&emsp;&emsp;if email!=vemail:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;raise forms.ValidationError("Make sure your emails match!")</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="saveformtomodel">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Save Form to Model</h4>
+                <p class="location">In application forms.py:</p>
+                <pre class="mb-1"><code contenteditable>from django import forms<br>from application.models import Model1<br>class newForm(forms.ModelForm):<br>&emsp;&emsp;class Meta:<br>&emsp;&emsp;&emsp;&emsp;model=mymodel()<br>&emsp;&emsp;&emsp;&emsp;field=#options</code></pre>
+                <p class="step">Want to include all fields?</p>
+                <pre class="mb-1"><code contenteditable>fields="__all__"</code></pre>
+                <p class="step">Want to exclude fields?</p>
+                <pre class="mb-1"><code contenteditable>exclude=["field1", "field2"]</code></pre>
+                <p class="step">Want to include select fields?</p>
+                <pre class="mb-1"><code contenteditable>fields=("field1", "field2")</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="urltemplatetagging">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">URL Template Tagging</h4>
+                <p class="step">(1) In templates/application create multiple html files. </p>
+                <p class="location">In application views.py:</p>
+                <pre class="mb-1"><code contenteditable>def index(request):<br>&emsp;&emsp;return render(request, 'app/index.html')</code></pre>
+                <p class="location">In project urls.py:</p>
+                <pre class="mb-1"><code contenteditable>from application import views<br>urlpatterns=[<br>&emsp;&emsp;path('', views.index, name='index'),<br>&emsp;&emsp;path('/application', include(views.urls))<br>]</code></pre>
+                <p class="location">In application urls.py:</p>
+                <pre class="mb-1"><code contenteditable>from django.conf.urls import url<br>from django.urls import path<br>from application import views<br>app_name='application'<br><br>urlpatterns=[<br>&emsp;&emsp;path('relative/', views.relative),<br>&emsp;&emsp;path('other/', views.other)<br>]</code></pre>
+                <p class="location">In templates application relative.html:</p>
+                <pre class="mb-1"><code contenteditable>&lt;a href="{% url 'application:other' %}"&gt; Go to other.html &lt;/a&gt;</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="templateinheritance">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Template Inheritance</h4>
+                <p class="step">(1) Set up base.html document with elements desired to appear cross pages.</p>
+                <p class="location">In base.html &lt;body&gt;:</p>
+                <pre class="mb-1"><code contenteditable>&lt;div&gt;<br>{% block body_block %}<br>{% endblock %}<br>&lt;/div&gt;</code></pre>
+                <p class="location">In other.html:</p>
+                <pre class="mb-1"><code contenteditable>&lt;!DOCTYPE&gt;<br>{% extends "app/base.html" %}<br>&emsp;{% block body_block %}<br>&emsp;&emsp;&lt;h1&gt;This content would be unique to page&lt;/h1&gt;<br>&emsp;{% endblock %}</code></pre>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div><!--End Right Side Content-->
+
+
+    <section id="contact" class="text-center">
+      <p><br><br><br><br></p>
+    </section>
+
+    <section id="footer">
+      <footer class="footer mt-auto py-3 text-center fixed-bottom">
+        <a class="btn btn-outline-light" href="#header">Back to Top</a>
+      </footer>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  </body>
+</html>
