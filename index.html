@@ -42,6 +42,7 @@
         <h6 class="mb-0 mt-4 text-white">Application Specific URL</h4>
         <li><a href="#urltemplatetagging">URL Template Tagging</a></li>
         <li><a href="#templateinheritance">Template Inheritance</a></li>
+        <li><a href="#templatefilters">Template Filters</a></li>
       </ul>
     </div>
     <div class="mainbar">
@@ -79,6 +80,7 @@
             <li><a href="#saveformtomodel">Save Form to Model</a></li>
             <li><a href="#urltemplatetagging">URL Template Tagging</a></li>
             <li><a href="#tempateinheritance">Template Inheritance</a></li>
+            <li><a href="#templatefilters">Template Filters</a></li>
           </ol>
         </div>
       </section>
@@ -297,6 +299,16 @@
                 <pre class="mb-1"><code contenteditable>&lt;div&gt;<br>{% block body_block %}<br>{% endblock %}<br>&lt;/div&gt;</code></pre>
                 <p class="location">In other.html:</p>
                 <pre class="mb-1"><code contenteditable>&lt;!DOCTYPE&gt;<br>{% extends "app/base.html" %}<br>&emsp;{% block body_block %}<br>&emsp;&emsp;&lt;h1&gt;This content would be unique to page&lt;/h1&gt;<br>&emsp;{% endblock %}</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="templatefilters">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Template Inheritance</h4>
+                <p class="step">(1) Create folder "templatetags under application.</p>
+                <p class="step">(2) In application/templatetags, create a __init__.py file.</p>
+                <p class="step">(3) In application/templatetags, create a customfilters.py.</p>
+                <p class="location">In customerfilters.py:</p>
+                <pre class="mb-1"><code contenteditable>from Django import template<br>register = template.library()<br>def cut(value, arg):<br>&emsp;&emsp;"""This cuts out all args from the string"""<br>&emsp;&emsp;return value.replace(arg,'')<br>&emsp;register.filter('cut', cut)</code></pre>
               </div>
             </div>
           </div>
