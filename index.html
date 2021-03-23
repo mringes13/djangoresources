@@ -308,7 +308,7 @@
                 <p class="step">(2) In application/templatetags, create a __init__.py file.</p>
                 <p class="step">(3) In application/templatetags, create a customfilters.py.</p>
                 <p class="location">In customerfilters.py:</p>
-                <pre class="mb-1"><code contenteditable>from Django import template<br>register = template.library()<br>@register.filter(name='cut')<br>def cut(value, arg):<br>&emsp;&emsp;"""<br>&emsp;&emsp;This cuts out all args from the string<br>&emsp;&emsp;"""<br>&emsp;&emsp;return value.replace(arg,'')<br>&emsp;register.filter('cut', cut)</code></pre>
+                <pre class="mb-1"><code contenteditable>from Django import template<br>register = template.library()<br>@register.filter(name='cut')<br>def cut(value, arg):<br>&emsp;&emsp;"""<br>&emsp;&emsp;This cuts out all args from the string<br>&emsp;&emsp;"""<br>&emsp;&emsp;return value.replace(arg,'')<br>register.filter('cut', cut)</code></pre>
               </div>
             </div>
           </div>
