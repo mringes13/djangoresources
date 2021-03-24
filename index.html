@@ -45,6 +45,7 @@
         <li><a href="#templatefilters">Template Filters</a></li>
         <h6 class="mb-0 mt-4 text-white">User Authentication</h4>
         <li><a href="#passwords">Passwords</a></li>
+        <li><a href="#mediasetup">Media Set Up</a></li>
       </ul>
     </div>
     <div class="mainbar">
@@ -84,6 +85,7 @@
             <li><a href="#tempateinheritance">Template Inheritance</a></li>
             <li><a href="#templatefilters">Template Filters</a></li>
             <li><a href="#passwords">Passwords</a></li>
+            <li><a href="#mediasetup">Media Set Up</a></li>
           </ol>
         </div>
       </section>
@@ -322,6 +324,13 @@
                 <pre class="mb-1"><code contenteditable>pip install bcrypt<br>pip install django[argon2]</code></pre>
                 <p class="location">In settings.py:</p>
                 <pre class="mb-1"><code contenteditable>PASSWORD_HASHERS = [<br>&emsp; 'django.contrib.auth.hashers.Argon2PasswordHashers',<br>&emsp; 'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',<br>&emsp; 'django.contrib.auth.hashers.BCryptPasswordHasher',<br>&emsp; 'django.contrib.auth.hashers.PBKDF2PasswordHasher',<br>&emsp; 'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',<br>]</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="mediasetup">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Media Set Up</h4>
+                <p class="location">In settings.py:</p>
+                <pre class="mb-1"><code contenteditable>MEDIA_DIR = os.path.join(BASE_DIR, 'media')<br>...<br>MEDIA_URL = '/media/'<br>MEDIA_ROOT=MEDIA_DIR</code></pre>
               </div>
             </div>
           </div>
