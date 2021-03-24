@@ -43,6 +43,8 @@
         <li><a href="#urltemplatetagging">URL Template Tagging</a></li>
         <li><a href="#templateinheritance">Template Inheritance</a></li>
         <li><a href="#templatefilters">Template Filters</a></li>
+        <h6 class="mb-0 mt-4 text-white">User Authentication</h6>
+        <li><a href="#passwords">Passwords</a></li>
       </ul>
     </div>
     <div class="mainbar">
@@ -81,6 +83,7 @@
             <li><a href="#urltemplatetagging">URL Template Tagging</a></li>
             <li><a href="#tempateinheritance">Template Inheritance</a></li>
             <li><a href="#templatefilters">Template Filters</a></li>
+            <li><a href="#passwords">Passwords</a></li>
           </ol>
         </div>
       </section>
@@ -309,6 +312,16 @@
                 <p class="step">(3) In application/templatetags, create a customfilters.py.</p>
                 <p class="location">In customerfilters.py:</p>
                 <pre class="mb-1"><code contenteditable>from Django import template<br>register = template.library()<br>@register.filter(name='cut')<br>def cut(value, arg):<br>&emsp;&emsp;"""<br>&emsp;&emsp;This cuts out all args from the string<br>&emsp;&emsp;"""<br>&emsp;&emsp;return value.replace(arg,'')<br>register.filter('cut', cut)</code></pre>
+              </div>
+            </div>
+            <div class="col-12 my-3" id="passwords">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">Passwords</h4>
+                <p class="step">(1) Make sure the following are installed applications in settings.py: django.contrib.admin, django.contrib.auth, django.contrib.contenttypes.</p>
+                <p class="location">In terminal:</p>
+                <pre class="mb-1"><code contenteditable>pip install bcrypt<br>pip install django[argon2]</code></pre>
+                <p class="location">In settings.py:</p>
+                <pre class="mb-1"><code contenteditable>PASSWORD_HASHERS = [<br>&emsp; 'django.contrib.auth.hashers.Argon2PasswordHashers',<br>&emsp; 'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',<br>&emsp; 'django.contrib.auth.hashers.BCryptPasswordHasher',<br>&emsp; 'django.contrib.auth.hashers.PBKDF2PasswordHasher',<br>&emsp; 'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',<br>]</code></pre>
               </div>
             </div>
           </div>
