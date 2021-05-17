@@ -333,6 +333,31 @@
                 <pre class="mb-1"><code contenteditable>MEDIA_DIR = os.path.join(BASE_DIR, 'media')<br>...<br>MEDIA_URL = '/media/'<br>MEDIA_ROOT=MEDIA_DIR</code></pre>
               </div>
             </div>
+            <div class="col-12 my-3" id="">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">User Models</h4>
+                <p class="location">In models.py:</p>
+                <pre class="mb-1"><code contenteditable>class UserProfileInfo(models.Model):<br><&emsp;user = models.OneToOneField(User)<br>&emsp;portfolio_site=models.URLField(blank=True)<br>&emsp;profile_pic = models.ImageField(upload_to='profile_pics', blank=True)</code></pre>
+                <p class="step">In media folder, add folder for profile_pics.</p>
+                <p class="location">In forms.py</p>
+                <pre class="mb-1"><code contenteditable>from django import forms <br>from django.contrib.auth.models import User<br>from app.models import UserProfileInfo<br>class UserForm(forms.ModelForm):<br>&emsp;password = forms.CharField(widget=forms.PasswordInput())<br>&emsp; class Meta():<br>&emsp;&emsp;model = UserForm<br>&emsp;&emsp;fields = ('username', 'email', 'password')<br>class UserProfileInfo(forms.ModelForm):<br>&emsp;class Meta:&emsp;&emsp;model=UserProfileInfo<br>&emsp;fields=('portfolio_site', 'profile_pic')</code></pre>
+                <p class="location">In admin.py:</p>
+                <pre class="mb-1"><code contenteditable>from app.models import UserProfileInfo<br>admin.site.register(UserProfileInfo)</code></pre>
+              </div>
+            </div>
+            
+
+
+
+
+
+            <!-- <div class="col-12 my-3" id="">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0"></h4>
+                <p class="location"></p>
+                <pre class="mb-1"><code contenteditable></code></pre>
+              </div>
+            </div> -->
           </div>
         </div>
       </section>
