@@ -47,6 +47,7 @@
         <li><a href="#passwords">Passwords</a></li>
         <li><a href="#mediasetup">Media Set Up</a></li>
         <li><a href="#usermodels">User Models</a></li>
+        <li><a href="#moreusermodels">More User Models</a></li>
       </ul>
     </div>
     <div class="mainbar">
@@ -88,6 +89,7 @@
             <li><a href="#passwords">Passwords</a></li>
             <li><a href="#mediasetup">Media Set Up</a></li>
             <li><a href="#usermodels">User Models</a></li>
+            <li><a href="#moreusermodels">More User Models</a></li>
           </ol>
         </div>
       </section>
@@ -347,7 +349,21 @@
                 <pre class="mb-1"><code contenteditable>from app.models import UserProfileInfo<br>admin.site.register(UserProfileInfo)</code></pre>
               </div>
             </div>
-            
+            <div class="col-12 my-3" id="moreusermodels">
+              <div class="border border-dark rounded bg-light p-3">
+                <h4 class="py-0">More User Models</h4>
+                <p class="step">In templates folder, create app folder and create base.html under the app. Create index.html. Create registration.html. Create login.html.</p>
+                <p class="step">In base.html, create HTML document and add bootstrap.</p>
+                <p class="step">In base.html, create navbar.</p>
+                <p class="location">In base.html:</p>
+                <pre class="mb-1"><code contenteditable>&lt;a href="{% url 'index' %}&gt;</code></pre>
+                <pre class="mb-1"><code contenteditable>{% block body %}<br>{% end body_block %}</code></pre>
+                <p class="location">In index.html:</p>
+                <pre class="mb-1"><code contenteditable>{% extends "basic_app/base.html" %}<br>{% block body_block %}<br>&lt;h5&gt;Hello&lt;h5&gt;<br>{% endblock %}</code></pre>
+                <p class="location">In registration.html:</p>
+                <pre class="mb-1"><code contenteditable>{% extends "basic_app/base.html" %}<br>{% load staticfiles %}<br>{% block body_block %}<br>&lt;div class="jumbotron&gt;<br>{% if registered %}<br>%emsp;&lt;h1&gt; Thank you for registering! &lt;h1&gt;<br>{% else %}<br>%emsp; &lt;form enctype="multipart/form-data" method="post"><br><br>%emsp; %emsp; {% csrf_token %}<br>&emsp;&emsp;{{userform.as_p}<br>{% endif %}<br>&lt;div&gt;<br>{% endblock %}</code></pre>
+              </div>
+            </div>
 
 
 
