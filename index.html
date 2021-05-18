@@ -361,7 +361,7 @@
                 <p class="location">In index.html:</p>
                 <pre class="mb-1"><code contenteditable>{% extends "basic_app/base.html" %}<br>{% block body_block %}<br>&emsp;&lt;h5&gt;Hello&lt;h5&gt;<br>{% endblock %}</code></pre>
                 <p class="location">In registration.html:</p>
-                <pre class="mb-1"><code contenteditable>{% extends "basic_app/base.html" %}<br>{% load staticfiles %}<br>{% block body_block %}<br>&lt;div class="jumbotron&gt;<br>{% if registered %}<br>&emsp;&lt;h1&gt; Thank you for registering! &lt;h1&gt;<br>{% else %}<br>&emsp; &lt;form enctype="multipart/form-data" method="post"><br><br>&emsp;&emsp; {% csrf_token %}<br>&emsp;&emsp;{{userform.as_p}<br>&emsp;&lt;/form><br>{% endif %}<br>&lt;div&gt;<br>{% endblock %}</code></pre>
+                <pre class="mb-1"><code contenteditable>{% extends "basic_app/base.html" %}<br>{% load staticfiles %}<br>{% block body_block %}<br>&lt;div class="jumbotron&gt;<br>{% if registered %}<br>&emsp;&lt;h1&gt; Thank you for registering! &lt;h1&gt;<br>{% else %}<br>&emsp; &lt;form enctype="multipart/form-data" method="post"><br>&emsp;&emsp;{% csrf_token %}<br>&emsp;&emsp;{{userform.as_p}<br>&emsp;&lt;/form><br>{% endif %}<br>&lt;div&gt;<br>{% endblock %}</code></pre>
               </div>
             </div>
 
